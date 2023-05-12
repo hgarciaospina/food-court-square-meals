@@ -1,7 +1,7 @@
 package com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.adapter;
 
 import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.exceptions.NameAlreadyExistsException;
-import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.exceptions.RestaurantAlreadyExistsException;
+import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.exceptions.TinAlreadyExistsException;
 import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.mappers.IRestaurantEntityMapper;
 import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.repositories.IRestaurantRepository;
 import com.pragma.powerup.squaremealsmicroservice.domain.model.Restaurant;
@@ -16,7 +16,7 @@ public class RestaurantMysqlAdapter implements IRestaurantPersistencePort {
     @Override
     public void saveRestaurant(Restaurant restaurant) {
         if (restaurantRepository.findByTin(restaurant.getTin()).isPresent()) {
-            throw new RestaurantAlreadyExistsException();
+            throw new TinAlreadyExistsException();
         }
 
         if (restaurantRepository.existsByName(restaurant.getName())){
