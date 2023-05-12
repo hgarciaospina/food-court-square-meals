@@ -23,8 +23,6 @@ public class RestaurantMysqlAdapter implements IRestaurantPersistencePort {
             throw new NameAlreadyExistsException();
         }
 
-
-
         restaurantRepository.save(restaurantEntityMapper.toEntity(restaurant));
     }
 }

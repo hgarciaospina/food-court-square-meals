@@ -39,11 +39,11 @@ public class ControllerAdvisor {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, NO_DATA_FOUND_MESSAGE));
     }
-    @ExceptionHandler(RestaurantAlreadyExistsException.class)
+    @ExceptionHandler(TinAlreadyExistsException.class)
     public ResponseEntity<Map<String, String>> handleRestaurantAlreadyExistsException(
-            RestaurantAlreadyExistsException restaurantAlreadyExistsException) {
+            TinAlreadyExistsException restaurantAlreadyExistsException) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, RESTAURANT_ALREADY_EXISTS_MESSAGE));
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, TIN_ALREADY_EXISTS_MESSAGE));
     }
 
     @ExceptionHandler(NameAlreadyExistsException.class)
@@ -55,7 +55,7 @@ public class ControllerAdvisor {
 
     @ExceptionHandler(RestaurantNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleRestaurantNotFoundException(
-            RestaurantAlreadyExistsException restaurantNotFoundException) {
+            RestaurantNotFoundException restaurantNotFoundException) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, RESTAURANT_NOT_FOUND_MESSAGE));
     }
