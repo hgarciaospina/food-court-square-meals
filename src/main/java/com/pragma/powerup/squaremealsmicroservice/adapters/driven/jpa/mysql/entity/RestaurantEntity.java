@@ -20,7 +20,7 @@ public class RestaurantEntity {
     @Column(name = "tin", unique = true, nullable = false, length = 9)
     private String tin;
     private String address;
-    @Column(name = "id_owner", unique = true, nullable = false)
+    @Column(name = "id_owner", nullable = false)
     private Long idUser;
     @Column(nullable = false, length = 13)
     private String phone;
