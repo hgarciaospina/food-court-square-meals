@@ -2,7 +2,6 @@ package com.pragma.powerup.squaremealsmicroservice.configuration;
 
 import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.exceptions.*;
 import com.pragma.powerup.squaremealsmicroservice.domain.exceptions.TinLengthInvalidException;
-import com.pragma.powerup.usermicroservice.adapters.driven.jpa.mysql.exceptions.NoDataFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -32,12 +31,6 @@ public class ControllerAdvisor {
             }
         }
         return new ResponseEntity<>(errorMessages, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(NoDataFoundException.class)
-    public ResponseEntity<Map<String, String>> handleNoDataFoundException(NoDataFoundException noDataFoundException) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, NO_DATA_FOUND_MESSAGE));
     }
     @ExceptionHandler(TinAlreadyExistsException.class)
     public ResponseEntity<Map<String, String>> handleRestaurantAlreadyExistsException(
@@ -78,5 +71,12 @@ public class ControllerAdvisor {
             OwnerAlreadyExistsException ownerAlreadyExistsException) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, OWNER_ALREADY_EXISTS_MESSAGE));
+    }
+
+    @ExceptionHandler(OwnerIsNotException.class)
+    public ResponseEntity<Map<String, String>> handleOwnerIsNotException(
+            OwnerIsNotException ownerIsNotException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, OWNER_IS_NOT_MESSAGE));
     }
 }

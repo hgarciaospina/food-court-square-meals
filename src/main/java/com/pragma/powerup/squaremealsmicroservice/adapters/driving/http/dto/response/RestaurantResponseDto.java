@@ -1,8 +1,9 @@
 package com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.response;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-
+@Builder
 @AllArgsConstructor
 @Getter
 public class RestaurantResponseDto {

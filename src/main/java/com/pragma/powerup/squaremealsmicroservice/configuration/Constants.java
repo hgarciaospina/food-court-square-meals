@@ -21,6 +21,7 @@ public class Constants {
     public static final String  TIN_LENGTH_INVALID_MESSAGE = "The tin number must have 9 digits";
     public static final String NAME_ALREADY_EXISTS_MESSAGE = "A restaurant already exists with the name provided";
     public static final String OWNER_NOT_FOUND_MESSAGE = "No owner found with the id provided";
+    public static final String OWNER_IS_NOT_MESSAGE = "Not a user with owner role or the user does not exist";
     public static final String RESTAURANT_NOT_FOUND_MESSAGE = "No restaurant found with the id provided";
     public static final String ROLE_NOT_ALLOWED_MESSAGE = "No permission granted to create users with this role";
     public static final String  OWNER_ALREADY_EXISTS_MESSAGE = "A owner already exists with the id provided";
