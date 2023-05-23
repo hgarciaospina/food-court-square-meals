@@ -1,6 +1,5 @@
 package com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.response;
 
-import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
