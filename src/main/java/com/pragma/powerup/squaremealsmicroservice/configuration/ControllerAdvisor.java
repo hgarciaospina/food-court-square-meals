@@ -1,6 +1,7 @@
 package com.pragma.powerup.squaremealsmicroservice.configuration;
 
 import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.exceptions.*;
+import com.pragma.powerup.squaremealsmicroservice.domain.exceptions.TinLengthInvalidException;
 import com.pragma.powerup.usermicroservice.adapters.driven.jpa.mysql.exceptions.NoDataFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +25,7 @@ public class ControllerAdvisor {
     public ResponseEntity<Object> handleValidationException(MethodArgumentNotValidException ex) {
         List<String> errorMessages = new ArrayList<>();
         for (ObjectError error : ex.getBindingResult().getAllErrors()) {
-            if (error instanceof FieldError) {
-                FieldError fieldError = (FieldError) error;
+            if (error instanceof FieldError fieldError) {
                 errorMessages.add(fieldError.getField() + ": " + fieldError.getDefaultMessage());
             } else {
                 errorMessages.add(error.getDefaultMessage());
@@ -44,6 +44,13 @@ public class ControllerAdvisor {
             TinAlreadyExistsException restaurantAlreadyExistsException) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, TIN_ALREADY_EXISTS_MESSAGE));
+    }
+
+    @ExceptionHandler(TinLengthInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleTinLengthInvalidException(
+            TinLengthInvalidException tinLengthInvalidException) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, TIN_LENGTH_INVALID_MESSAGE));
     }
 
     @ExceptionHandler(NameAlreadyExistsException.class)

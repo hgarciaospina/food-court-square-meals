@@ -1,7 +1,9 @@
 package com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.handlers.impl;
 
 import com.pragma.powerup.squaremealsmicroservice.adapters.driven.feignclient.UserFeignClientImpl;
+import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.exceptions.RoleNotAllowedForAnOwnerUser;
 import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.request.RestaurantRequestDto;
+import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.response.RestaurantResponseDto;
 import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.handlers.IRestaurantHandler;
 import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.mapper.IRestaurantRequestMapper;
 import com.pragma.powerup.squaremealsmicroservice.domain.api.IRestaurantServicePort;
@@ -16,11 +18,10 @@ public class RestaurantHandlerImpl implements IRestaurantHandler {
     private final UserFeignClientImpl userFeignClient;
 
     @Override
-    public void saveRestaurant(RestaurantRequestDto restaurantRequestDto) {
-        if(userFeignClient.isOwnerUser(restaurantRequestDto.getIdOwner())){
-            restaurantServicePort.saveRestaurant(restaurantRequestMapper.toRestaurant(restaurantRequestDto));
-        }
-        //TODO: Modify excpetion by exception correct when is not owner user
-        //throw new Exception();
+    public RestaurantResponseDto saveRestaurant(RestaurantRequestDto restaurantRequestDto) {
+        if (userFeignClient.isOwnerUser(restaurantRequestDto.getIdOwner()))
+            return restaurantServicePort.saveRestaurant(restaurantRequestDto);
+        throw new RoleNotAllowedForAnOwnerUser();
     }
+
 }

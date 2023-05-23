@@ -17,11 +17,11 @@ public class BeanConfiguration {
     private final IRestaurantRepository restaurantRepository;
     private final IRestaurantEntityMapper restaurantEntityMapper;
     @Bean
-    public IRestaurantServicePort restaurantServicePort() {
-        return new RestaurantUseCase(restaurantPersistencePort());
-    }
-    @Bean
     public IRestaurantPersistencePort restaurantPersistencePort() {
         return new RestaurantMysqlAdapter(restaurantRepository, restaurantEntityMapper);
+    }
+    @Bean
+    public IRestaurantServicePort restaurantServicePort() {
+        return new RestaurantUseCase(restaurantPersistencePort(), restaurantEntityMapper);
     }
 }

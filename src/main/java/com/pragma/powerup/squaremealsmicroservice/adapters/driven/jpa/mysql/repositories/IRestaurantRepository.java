@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface IRestaurantRepository extends JpaRepository<RestaurantEntity, Long> {
     Optional<RestaurantEntity> findByTin(String tin);
 
-    Boolean existsByName(String name);
-    Boolean existsByTin(String tin);
+    boolean existsByName(String name);
+    boolean existsByTin(String tin);
 }
