@@ -1,33 +1,16 @@
-INSERT INTO `person` (
-    `id`,
-    `address`,
-    `dni_number`,
-    `id_dni_type`,
-    `id_person_type`,
-    `mail`,
-    `name`,
-    `password`,
-    `phone`,
-    `surname`,
-    `token_password`
-  )
+INSERT INTO squaremeals.restaurant(
+    address,
+    id_owner,
+    name,
+    phone,
+    tin,
+    url_logo
+    )
 VALUES
-  (
-    '1',
-    'st 123 # 456',
-    '123',
-    '1',
-    '1',
-    'email@some.com',
-    'Name',
-    '$2a$10$GlsGSNhkbVon6ZOSNMptOu5RikedRzlCAhMa7YpwvUSS0c88WT99S',
-    '1234567890',
-    'Surname',
-    NULL
-  );
-
-
-INSERT INTO `role` (`id`, `description`, `name`) VALUES ('1', 'ROLE_ADMIN', 'ROLE_ADMIN');
-INSERT INTO `role` (`id`, `description`, `name`) VALUES ('2', 'ROLE_USER', 'ROLE_USER');
-
-INSERT INTO `user` (`id_person`, `id_role`) VALUES ('1', '1');
+    (
+    'Calle Luna, Calle Sol',
+     2,
+     'El Biscocho Sabroso',
+     '+573003452311',
+     '900501009',
+     'https://i.pinimg.com/564x/fc/39/0d/fc390d52d7ddd610c20a4d9409684c40.jpg');
