@@ -24,7 +24,7 @@ To get a local copy up and running follow these steps.
 * JDK 17 [https://jdk.java.net/java-se-ri/17](https://jdk.java.net/java-se-ri/17)
 * Gradle [https://gradle.org/install/](https://gradle.org/install/)
 * MySQL [https://dev.mysql.com/downloads/installer/](https://dev.mysql.com/downloads/installer/)
-* DBeaver Community [https://dbeaver.io/download//)
+* DBeaver Community [https://dbeaver.io/download/](https://dbeaver.io/download/)
 
 ### Recommended Tools
 * IntelliJ Community [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)
