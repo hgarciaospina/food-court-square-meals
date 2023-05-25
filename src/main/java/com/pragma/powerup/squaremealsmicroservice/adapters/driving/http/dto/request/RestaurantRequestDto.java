@@ -38,6 +38,6 @@ public class RestaurantRequestDto {
     private String phone;
 
     @Pattern(regexp = "^(https?|ftp)://([\\w.-]+)(:\\d+)?(/\\S*)?$",message="The url logo must be a format valid" )
-    @URL
+    @URL(message="The url logo must be a format valid" )
     private String urlLogo;
 }
