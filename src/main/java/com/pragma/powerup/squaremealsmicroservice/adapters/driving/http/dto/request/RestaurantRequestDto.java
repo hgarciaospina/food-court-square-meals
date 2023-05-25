@@ -13,7 +13,7 @@ public class RestaurantRequestDto {
     @NotNull(message = "The name  of the restaurant is required")
     @NotBlank(message = "The name of the restaurant cannot have only blank spaces")
     @NotEmpty(message = "The restaurant name cannot be an empty string")
-    @Pattern(regexp =  "^[a-zA-Z\\d\\s]*$")
+    @Pattern(regexp =  "^(?!\\s+$)^(?!\\d+$)[\\w\\s.#]+$", message="The name of restaurant format is invalid.")
     private String name;
 
     @NotBlank(message = "The Number of tin is required")
@@ -21,10 +21,10 @@ public class RestaurantRequestDto {
     @NotNull(message = "The Number of tin  tin is required")
     private String tin;
 
-    @NotNull(message = "The address is required")
+    @NotNull(message = "The address of restaurant is required")
     @NotBlank(message = "The address of restaurant cannot have only blank spaces")
     @NotEmpty(message = "The address of restaurant cannot be an empty string")
-    @Pattern(regexp = "^(?=.*[a-zA-Z])[a-zA-Zd\\d\\s]*$", message ="An address with only numbers is not allowed.")
+    @Pattern(regexp = "^(?!\\s+$)^(?!\\d+$)[\\w\\s.#-,]+$", message ="The address format is incorrect.")
     private String address;
 
     @NotNull(message = "The owner is required")
