@@ -1,10 +1,8 @@
 package com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.*;
+import org.hibernate.validator.constraints.URL;
 
 @Builder
 @AllArgsConstructor
@@ -12,16 +10,20 @@ import lombok.*;
 @Getter
 @Setter
 public class RestaurantRequestDto {
+    @NotNull(message = "The name  of the restaurant is required")
+    @NotBlank(message = "The name of the restaurant cannot have only blank spaces")
+    @NotEmpty(message = "The restaurant name cannot be an empty string")
     @Pattern(regexp =  "^[a-zA-Z\\d\\s]*$")
     private String name;
 
-    @NotBlank(message = "Number tin is required")
-    @NotEmpty(message = "Number tin is required")
-    @NotNull(message = "Number tin is required")
+    @NotBlank(message = "The Number of tin is required")
+    @NotEmpty(message = "The Number of tin cannot have only blank spaces")
+    @NotNull(message = "The Number of tin  tin is required")
     private String tin;
 
-    @NotBlank(message = "The address is required")
-    @NotEmpty(message = "The address is required")
+    @NotNull(message = "The address is required")
+    @NotBlank(message = "The address of restaurant cannot have only blank spaces")
+    @NotEmpty(message = "The address of restaurant cannot be an empty string")
     @Pattern(regexp = "^(?=.*[a-zA-Z])[a-zA-Zd\\d\\s]*$", message ="An address with only numbers is not allowed.")
     private String address;
 
@@ -29,11 +31,13 @@ public class RestaurantRequestDto {
     private Long idOwner;
 
     @Pattern(regexp = "^(\\+57)?\\s?(\\d{1})?[\\s|-]?(\\d{3})?[\\s|-]?(\\d{3})[\\s|-]?(\\d{2})[\\s|-]?(\\d{2})$", message = "Number phone must be a valid number phone")
+    @Size(max = 13, message = "The phone number must not be longer than 13")
     @NotBlank(message = "Number phone is required")
     @NotEmpty(message = "Number phone is required")
-    @NotNull(message = "Number phone number is required")
+    @NotNull(message = "Number phone is required")
     private String phone;
 
     @Pattern(regexp = "^(https?|ftp)://([\\w.-]+)(:\\d+)?(/\\S*)?$",message="The url logo must be a format valid" )
+    @URL
     private String urlLogo;
 }
