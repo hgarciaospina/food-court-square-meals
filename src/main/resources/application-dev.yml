@@ -2,13 +2,17 @@ server:
   port: 8095
 
 spring:
+
+  application:
+    name: microservice-square-meals
+
   datasource:
     url: jdbc:mysql://localhost/squaremeals
     username: root
     password: Leandro2009*
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 jwt:
   secret: ${KEYSECRET_SECURITY:eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.nZU_gPcMXkWpkCUpJceSxS7lSickF0tTImHhAR949Z-Nt69LgW8G6lid-mqd9B579tYM8C4FN2jdhR2VRMsjtA}
   expiration: ${EXPIRE_DAYS_SECURITY:3600000}

@@ -1,7 +1,8 @@
 package com.pragma.powerup.squaremealsmicroservice.domain.api;
 
-import com.pragma.powerup.squaremealsmicroservice.domain.model.Restaurant;
+import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.request.RestaurantRequestDto;
+import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.response.RestaurantResponseDto;
 
 public interface IRestaurantServicePort {
-    void saveRestaurant(Restaurant restaurant);
+    RestaurantResponseDto saveRestaurant(RestaurantRequestDto restaurantRequestDto);
 }

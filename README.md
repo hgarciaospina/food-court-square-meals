@@ -24,6 +24,7 @@ To get a local copy up and running follow these steps.
 * JDK 17 [https://jdk.java.net/java-se-ri/17](https://jdk.java.net/java-se-ri/17)
 * Gradle [https://gradle.org/install/](https://gradle.org/install/)
 * MySQL [https://dev.mysql.com/downloads/installer/](https://dev.mysql.com/downloads/installer/)
+* DBeaver Community [https://dbeaver.io/download/](https://dbeaver.io/download/)
 
 ### Recommended Tools
 * IntelliJ Community [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)
@@ -34,26 +35,26 @@ To get a local copy up and running follow these steps.
 1. Clone the repository
 2. Change directory
    ```sh
-   cd power-up-arquetipo-v3
+   cd food-court-square-meals
    ```
-3. Create a new database in MySQL called powerup
+3. Create a new database in MySQL called squaremeals
 4. Update the database connection settings
    ```yml
    # src/main/resources/application-dev.yml
    spring:
       datasource:
-          url: jdbc:mysql://localhost/powerup
+          url: jdbc:mysql://localhost/squaremeals
           username: root
           password: <your-password>
    ```
-5. After the tables are created execute src/main/resources/data.sql content to populate the database
-6. Open Swagger UI and search the /auth/login endpoint and login with userDni: 123, password: 1234
+5. After the tables are created execute src/main/resources/data.sql content am example to populate the database
+6. To manage the database, DBeaver 23.0.3 was used.
 
 <!-- USAGE -->
 ## Usage
 
 1. Right-click the class PowerUpApplication and choose Run
-2. Open [http://localhost:8090/swagger-ui/index.html](http://localhost:8090/swagger-ui/index.html) in your web browser
+2. Open [http://localhost:8090/swagger-ui/index.html](http://localhost:8095/swagger-ui/index.html) in your web browser
 
 <!-- ROADMAP -->
 ## Tests
