@@ -1,6 +1,5 @@
 package com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.entity;
 
-import com.pragma.powerup.squaremealsmicroservice.domain.model.Dish;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,11 +19,12 @@ public class CategoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<Dish> dishes;
+    @OneToMany(mappedBy = "categoryEntity", cascade = CascadeType.ALL)
+    private List<DishEntity> dishEntities;
 
     @Column(nullable = false)
     private String name;
+
     @Column(nullable = false)
     private String description;
 }

@@ -1,7 +1,5 @@
 package com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.entity;
 
-import com.pragma.powerup.squaremealsmicroservice.domain.model.Category;
-import com.pragma.powerup.squaremealsmicroservice.domain.model.Restaurant;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,11 +19,11 @@ public class DishEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_restaurant", nullable = false)
-    private Restaurant restaurant;
+    private RestaurantEntity restaurantEntity;
 
     @ManyToOne
     @JoinColumn(name = "id_category", nullable = false)
-    private Category category;
+    private CategoryEntity categoryEntity;
 
     @Column(nullable = false)
     private String name;
@@ -37,12 +35,6 @@ public class DishEntity {
 
     @Column(nullable = false)
     private String urlImage;
-
-    @Column(nullable = false)
-    private Long idCategory;
-
-    @Column(nullable = false)
-    private Long idRestaurant;
 
     @Column(columnDefinition = "boolean default true")
     private boolean active;
