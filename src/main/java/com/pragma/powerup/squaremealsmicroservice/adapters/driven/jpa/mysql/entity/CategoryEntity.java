@@ -10,24 +10,21 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "restaurant")
+@Table(name = "category")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class RestaurantEntity {
+public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Dish> dishes;
+
+    @Column(nullable = false)
     private String name;
-    @Column(name = "tin", unique = true, nullable = false, length = 9)
-    private String tin;
-    private String address;
-    @Column(name = "id_owner", nullable = false)
-    private Long idUser;
-    @Column(nullable = false, length = 13)
-    private String phone;
-    private String urlLogo;
+    @Column(nullable = false)
+    private String description;
 }
