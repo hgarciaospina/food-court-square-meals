@@ -1,7 +1,7 @@
 package com.pragma.powerup.squaremealsmicroservice.configuration;
 
 import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.exceptions.*;
-import com.pragma.powerup.squaremealsmicroservice.domain.exceptions.TinLengthInvalidException;
+import com.pragma.powerup.squaremealsmicroservice.domain.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -46,11 +46,11 @@ public class ControllerAdvisor {
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, TIN_LENGTH_INVALID_MESSAGE));
     }
 
-    @ExceptionHandler(NameAlreadyExistsException.class)
-    public ResponseEntity<Map<String, String>> handleNameAlreadyExistsException(
-            NameAlreadyExistsException restaurantAlreadyExistsException) {
+    @ExceptionHandler(RestaurantNameAlreadyExistsException.class)
+    public ResponseEntity<Map<String, String>> handleRestaurantNameAlreadyExistsException(
+            RestaurantNameAlreadyExistsException restaurantAlreadyExistsException) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, NAME_ALREADY_EXISTS_MESSAGE));
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, RESTAURANT_NAME__ALREADY_EXISTS_MESSAGE));
     }
 
     @ExceptionHandler(RestaurantNotFoundException.class)
@@ -78,5 +78,36 @@ public class ControllerAdvisor {
             OwnerIsNotException ownerIsNotException) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, OWNER_IS_NOT_MESSAGE));
+    }
+
+    @ExceptionHandler(CategoryNameAlreadyExistsException.class)
+    public ResponseEntity<Map<String, String>> handleCategoryNameAlreadyExistsException(
+            CategoryNameAlreadyExistsException categoryNameAlreadyExistsException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, CATEGORY_NAME_ALREADY_EXISTS_MESSAGE));
+    }
+    @ExceptionHandler(CategoryNameInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleCategoryNameInvalidException(
+            CategoryNameInvalidException categoryNameInvalidException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, CATEGORY_NAME_INVALID_MESSAGE));
+    }
+    @ExceptionHandler(CategoryDescriptionInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleCategoryDescriptionInvalidException(
+            CategoryDescriptionInvalidException categoryDescriptionInvalidException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, CATEGORY_DESCRIPTION_INVALID_MESSAGE));
+    }
+    @ExceptionHandler(CategoryNameNullEmptyBlankInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleCategoryNameNullEmptyBlankInvalidException(
+            CategoryDescriptionInvalidException categoryNameNullEmptyBlankInvalidException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, CATEGORY_NAME_NULL_EMPTY_BLANK_INVALID_MESSAGE));
+    }
+    @ExceptionHandler(CategoryDescriptionNullEmptyBlankInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleCategoryDescriptionNullEmptyBlankInvalidException(
+            CategoryDescriptionInvalidException categoryDescriptionNullEmptyBlankInvalidException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, CATEGORY_DESCRIPTION_NULL_EMPTY_BLANK_INVALID_MESSAGE));
     }
 }
