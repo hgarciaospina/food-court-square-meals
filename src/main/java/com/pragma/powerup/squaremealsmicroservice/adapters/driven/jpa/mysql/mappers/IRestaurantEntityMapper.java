@@ -17,5 +17,5 @@ public interface IRestaurantEntityMapper {
     RestaurantEntity toEntity(Restaurant restaurant);
     Restaurant toRestaurant(RestaurantEntity restaurantEntity);
     RestaurantResponseDto toRestaurantResponseDto(RestaurantEntity restaurantEntity);
-    Restaurant toDomain(RestaurantRequestDto restaurantRequestDto);
+    Restaurant requestDtoToModel(RestaurantRequestDto restaurantRequestDto);
 }
