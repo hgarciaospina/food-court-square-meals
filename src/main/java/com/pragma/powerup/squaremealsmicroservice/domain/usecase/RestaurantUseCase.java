@@ -17,13 +17,12 @@ public class RestaurantUseCase implements IRestaurantServicePort {
     @Override
     public RestaurantResponseDto saveRestaurant(RestaurantRequestDto restaurantRequestDto) {
         validations(restaurantRequestDto);
-        return restaurantPersistencePort.saveRestaurant(restaurantEntityMapper.toDomain(restaurantRequestDto));
+        return restaurantPersistencePort.saveRestaurant(restaurantEntityMapper.requestDtoToModel(restaurantRequestDto));
     }
 
     private void validations(RestaurantRequestDto restaurantRequestDto) {
 
         if (!RestaurantValidation.lengthValidTinNumber(restaurantRequestDto.getTin()))
             throw new TinLengthInvalidException();
-
     }
 }
