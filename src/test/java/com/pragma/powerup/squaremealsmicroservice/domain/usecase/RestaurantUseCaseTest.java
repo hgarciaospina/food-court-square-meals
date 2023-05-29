@@ -32,7 +32,7 @@ class RestaurantUseCaseTest {
         RestaurantRequestDto requestDto = new RestaurantRequestDto();
         requestDto.setTin("123456789");
 
-        when(mockRestaurantEntityMapper.toDomain(requestDto)).thenReturn(any());
+        when(mockRestaurantEntityMapper.requestDtoToModel(requestDto)).thenReturn(any());
 
         restaurantUseCase.saveRestaurant(requestDto);
 
