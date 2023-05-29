@@ -4,5 +4,5 @@ import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.requ
 import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.response.DishResponseDto;
 
 public interface IDishHandler {
-    DishResponseDto saveCategory(DishRequestDto dishRequestDto);
+    DishResponseDto saveDish(DishRequestDto dishRequestDto);
 }
