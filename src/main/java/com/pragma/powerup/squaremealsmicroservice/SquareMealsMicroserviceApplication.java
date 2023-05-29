@@ -7,10 +7,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class SquareMeasMicroserviceApplication {
+public class SquareMealsMicroserviceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SquareMeasMicroserviceApplication.class, args);
+		SpringApplication.run(SquareMealsMicroserviceApplication.class, args);
 	}
 
 }
