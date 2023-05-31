@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper(componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
-public interface IRestaurantResponsetMapper {
+public interface IRestaurantResponseMapper {
     RestaurantResponseDto entityToResponseDto(RestaurantEntity restaurantEntity);
     List<RestaurantResponseDto> responseDtoListToModelList(List<Restaurant> restaurantList);
 }
