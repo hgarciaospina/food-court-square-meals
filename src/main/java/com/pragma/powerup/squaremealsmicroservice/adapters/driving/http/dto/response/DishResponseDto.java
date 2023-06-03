@@ -12,7 +12,7 @@ public class DishResponseDto {
     private String description;
     private int price;
     private String urlImage;
-    private String nameCategory;
-    private String nameRestaurant;
+    private String categoryName;
+    private String restaurantName;
     private boolean active;
 }
