@@ -4,5 +4,6 @@ import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.resp
 import com.pragma.powerup.squaremealsmicroservice.domain.model.Dish;
 
 public interface IDishPersistencePort {
-    DishResponseDto saveDish(Dish dish);
+   DishResponseDto saveDish(Dish dish);
+
 }

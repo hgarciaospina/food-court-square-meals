@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 public class DishUseCase implements IDishServicePort {
     private final IDishPersistencePort dishPersistencePort;
     private final IDishEntityMapper dishEntityMapper;
-
     @Override
     public DishResponseDto saveDish(DishRequestDto dishRequestDto) {
         return dishPersistencePort.saveDish(dishEntityMapper.requestDtoToModel(dishRequestDto));

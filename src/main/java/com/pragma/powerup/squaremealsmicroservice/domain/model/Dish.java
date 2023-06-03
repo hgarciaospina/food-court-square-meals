@@ -1,10 +1,8 @@
 package com.pragma.powerup.squaremealsmicroservice.domain.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,7 +13,7 @@ public class Dish {
     private String description;
     private int price;
     private String urlImage;
-    private Long idCategory;
-    private Long idRestaurant;
+    private Category category;
+    private Restaurant restaurant;
     private boolean active;
 }
