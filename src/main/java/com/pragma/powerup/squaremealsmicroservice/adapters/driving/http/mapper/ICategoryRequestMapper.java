@@ -1,5 +1,6 @@
 package com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.mapper;
 
+import com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.entity.CategoryEntity;
 import com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.request.RestaurantRequestDto;
 import com.pragma.powerup.squaremealsmicroservice.domain.model.Category;
 import org.mapstruct.Mapper;
@@ -10,4 +11,5 @@ import org.mapstruct.ReportingPolicy;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface ICategoryRequestMapper {
     Category requestDtoToModel(RestaurantRequestDto restaurantRequestDto);
+    Category entityToModel(CategoryEntity categoryEntity);
 }
