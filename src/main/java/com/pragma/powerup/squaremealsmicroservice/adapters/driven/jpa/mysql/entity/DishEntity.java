@@ -1,10 +1,7 @@
 package com.pragma.powerup.squaremealsmicroservice.adapters.driven.jpa.mysql.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "dish")
@@ -12,6 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class DishEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
