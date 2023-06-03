@@ -17,7 +17,8 @@ public class Constants {
     public static final String CATEGORY_NAME_INVALID_MESSAGE = "The category name must be alphabetic";
     public static final String  CATEGORY_NAME_NULL_EMPTY_BLANK_INVALID_MESSAGE = "The category name cannot be null, blank or empty";
     public static final String  CATEGORY_DESCRIPTION_NULL_EMPTY_BLANK_INVALID_MESSAGE = "The category description cannot be null, blank or empty";
-    public static final String CATEGORY_DESCRIPTION_INVALID_MESSAGE = "The category description must be alphabetic";
+    public static final String CATEGORY_NOT_FOUND_MESSAGE = "No Category found with the id provided";
+    public static final String  CATEGORY_DESCRIPTION_INVALID_MESSAGE = "The category description must be alphabetic";
     public static final String RESTAURANT_CREATED_MESSAGE = "Restaurant created successfully";
     public static final String RESTAURANT_DELETED_MESSAGE = "Restaurant deleted successfully";
     public static final String RESPONSE_ERROR_MESSAGE_KEY = "error";
