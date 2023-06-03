@@ -14,8 +14,8 @@ import org.mapstruct.ReportingPolicy;
 public interface IRestaurantEntityMapper {
     @Mapping(source = "idOwner", target = "idUser")
 
-    RestaurantEntity toEntity(Restaurant restaurant);
+    RestaurantEntity modelToEntity(Restaurant restaurant);
     Restaurant toRestaurant(RestaurantEntity restaurantEntity);
-    RestaurantResponseDto toRestaurantResponseDto(RestaurantEntity restaurantEntity);
+    RestaurantResponseDto entityToResponseDto(RestaurantEntity restaurantEntity);
     Restaurant requestDtoToModel(RestaurantRequestDto restaurantRequestDto);
 }
