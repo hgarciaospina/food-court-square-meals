@@ -13,6 +13,10 @@ public class DishUseCase implements IDishServicePort {
     private final IDishEntityMapper dishEntityMapper;
     @Override
     public DishResponseDto saveDish(DishRequestDto dishRequestDto) {
+
+        if(dishRequestDto.getUrlImage().isBlank() || dishRequestDto.getUrlImage().isEmpty())
+            return null;
         return dishPersistencePort.saveDish(dishEntityMapper.requestDtoToModel(dishRequestDto));
     }
+
 }
