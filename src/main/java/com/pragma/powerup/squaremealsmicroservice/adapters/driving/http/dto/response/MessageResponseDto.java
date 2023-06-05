@@ -1,4 +1,4 @@
-package com.pragma.powerup.usermicroservice.adapters.driving.http.dto.response;
+package com.pragma.powerup.squaremealsmicroservice.adapters.driving.http.dto.response;
 
 public class MessageResponseDto {
 
