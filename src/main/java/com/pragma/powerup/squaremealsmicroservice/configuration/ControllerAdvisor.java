@@ -50,7 +50,7 @@ public class ControllerAdvisor {
     public ResponseEntity<Map<String, String>> handleRestaurantNameAlreadyExistsException(
             RestaurantNameAlreadyExistsException restaurantAlreadyExistsException) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, RESTAURANT_NAME__ALREADY_EXISTS_MESSAGE));
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, RESTAURANT_NAME_ALREADY_EXISTS_MESSAGE));
     }
 
     @ExceptionHandler(RestaurantNotFoundException.class)
@@ -100,7 +100,7 @@ public class ControllerAdvisor {
     }
     @ExceptionHandler(CategoryNameNullEmptyBlankInvalidException.class)
     public ResponseEntity<Map<String, String>> handleCategoryNameNullEmptyBlankInvalidException(
-            CategoryDescriptionInvalidException categoryNameNullEmptyBlankInvalidException) {
+            CategoryNameInvalidException categoryNameNullEmptyBlankInvalidException) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, CATEGORY_NAME_NULL_EMPTY_BLANK_INVALID_MESSAGE));
     }
@@ -113,8 +113,41 @@ public class ControllerAdvisor {
 
     @ExceptionHandler(CategoryNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleCategoryNotFoundException(
-            CategoryDescriptionInvalidException categoryNotFoundException) {
+            CategoryNotFoundException categoryNotFoundException) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, CATEGORY_NOT_FOUND_MESSAGE));
+    }
+
+    @ExceptionHandler(DishNameNullEmptyBlankInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleDishNameNullEmptyBlankInvalidException(
+            DishNameInvalidException dishNameNullEmptyBlankInvalidException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, DISH_NAME_NULL_EMPTY_BLANK_INVALID_MESSAGE));
+    }
+    @ExceptionHandler(DishDescriptionNullEmptyBlankInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleDishDescriptionNullEmptyBlankInvalidException(
+            DishDescriptionInvalidException dishDescriptionNullEmptyBlankInvalidException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, DISH_DESCRIPTION_NULL_EMPTY_BLANK_INVALID_MESSAGE));
+    }
+
+    @ExceptionHandler(DishNameInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleDishNameInvalidException(
+            DishNameInvalidException dishNameInvalidException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, DISH_NAME_INVALID_MESSAGE));
+    }
+    @ExceptionHandler(DishDescriptionInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleDishDescriptionInvalidException(
+            DishDescriptionInvalidException dishDescriptionInvalidException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, DISH_DESCRIPTION_INVALID_MESSAGE));
+    }
+
+    @ExceptionHandler(DishPriceInvalidException.class)
+    public ResponseEntity<Map<String, String>> handleDishPriceInvalidException(
+            DishPriceInvalidException dishPriceInvalidException) {
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, DISH_PRICE_INVALID_MESSAGE));
     }
 }
