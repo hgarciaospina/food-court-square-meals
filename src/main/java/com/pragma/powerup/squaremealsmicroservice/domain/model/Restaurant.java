@@ -1,11 +1,8 @@
 package com.pragma.powerup.squaremealsmicroservice.domain.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
