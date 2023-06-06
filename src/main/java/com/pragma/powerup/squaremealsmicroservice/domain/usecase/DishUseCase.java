@@ -19,10 +19,10 @@ public class DishUseCase implements IDishServicePort {
     private final IDishEntityMapper dishEntityMapper;
     @Override
     public DishResponseDto saveDish(DishRequestDto dishRequestDto) {
-        if (!isValidName(dishRequestDto.getName()))
+        if (!hasValidName(dishRequestDto.getName()))
             throw new DishNameInvalidException();
 
-        if (!isValidDescription(dishRequestDto.getDescription()))
+        if (!hasValidDescription(dishRequestDto.getDescription()))
             throw new DishDescriptionInvalidException();
 
         if(!isValidPrice(dishRequestDto))
@@ -30,9 +30,11 @@ public class DishUseCase implements IDishServicePort {
 
         return dishPersistencePort.saveDish(dishEntityMapper.requestDtoToModel(dishRequestDto));
     }
-    public boolean isValidName(String name) { return isValidPattern(name, DISH_NAME_PATTERN); }
-    public boolean isValidDescription(String description) { return isValidPattern(description, DISH_DESCRIPTION_PATTERN); }
-    public boolean isValidPattern(String value, String pattern) {
+    public boolean hasValidName(String name) {
+        return validateValue(name, DISH_NAME_PATTERN);
+    }
+    public boolean hasValidDescription(String description) { return validateValue(description, DISH_DESCRIPTION_PATTERN); }
+    public boolean validateValue(String value, String pattern) {
         if (value == null || value.trim().isEmpty() || value.trim().isBlank())
             return false;
 
