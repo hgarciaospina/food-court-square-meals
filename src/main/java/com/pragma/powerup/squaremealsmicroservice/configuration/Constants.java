@@ -8,8 +8,8 @@ public class Constants {
     public static final int TIN_NUMBER_LENGTH = 9;
     public static final String NAME_PATTERN = "^[a-zA-Z\\s]+$";
     public static final String DESCRIPTION_PATTERN = "^[a-zA-Z\\s]+$";
-    public static final String DISH_DESCRIPTION_PATTERN ="^(?=.*[a-zA-Z]{5,})[a-zA-Z0-9!#&\\-=\\[\\]{};':\"\\\\|,.<>\\/? ]+$";
-    public static final String DISH_NAME_PATTERN ="^(?=.*[a-zA-Z]{5,})[a-zA-Z0-9!#&\\-=\\[\\]{};':\"\\\\|,.<>\\/? ]+$";
+    public static final String DISH_DESCRIPTION_PATTERN ="^(?=.*[a-zA-Z])[a-zA-Z0-9!#&\\-=\\[\\]{};':\"\\\\|,.<>\\/? ]{5,}$";
+    public static final String DISH_NAME_PATTERN ="^(?=.*[a-zA-Z])[a-zA-Z0-9!#&\\-=\\[\\]{};':\"\\\\|,.<>\\/? ]{5,}$";
     public static final Long OWNER_ROLE_ID = 4L;
     public static final int MAX_PAGE_SIZE = 2;
     public static final String TIN_NUMBER_FORMAT = "^[1-9]\\d{0,8}$";
