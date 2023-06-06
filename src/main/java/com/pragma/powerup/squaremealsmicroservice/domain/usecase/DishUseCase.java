@@ -28,12 +28,6 @@ public class DishUseCase implements IDishServicePort {
         if(!isValidPrice(dishRequestDto))
             throw  new DishPriceInvalidException();
 
-        if (!isValidPattern(dishRequestDto.getName(), DISH_NAME_PATTERN))
-            throw  new DishNameNullEmptyBlankInvalidException();
-
-        if(!isValidPattern(dishRequestDto.getDescription(), DISH_DESCRIPTION_PATTERN))
-            throw  new DishDescriptionNullEmptyBlankInvalidException();
-
         return dishPersistencePort.saveDish(dishEntityMapper.requestDtoToModel(dishRequestDto));
     }
     public boolean isValidName(String name) { return isValidPattern(name, DISH_NAME_PATTERN); }
