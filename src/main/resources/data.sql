@@ -1,16 +1,34 @@
-INSERT INTO squaremeals.restaurant(
-    address,
-    id_owner,
-    name,
-    phone,
-    tin,
-    url_logo
-    )
-VALUES
+    INSERT INTO squaremeals.dish
+    (active,
+     description,
+     name,
+    price,
+    url_image,
+    id_category,
+    id_restaurant)
+    VALUES
+    (1,
+    'Fish Blue',
+    'Fish Blue',
+     15,
+    'https://www.shutterstock.com/image-photo/salad-avocado-pecans-260nw-398328580.jpg',
+    1,
+    1);
+
+    INSERT INTO squaremeals.category
+    (description, name)
+    VALUES
     (
-    'Calle Luna, Calle Sol',
-     2,
-     'El Biscocho Sabroso',
-     '+573003452311',
-     '900501009',
-     'https://i.pinimg.com/564x/fc/39/0d/fc390d52d7ddd610c20a4d9409684c40.jpg');
+    'Main dish',
+    'Main dish'
+    );
+
+    INSERT INTO squaremeals.restaurant
+    (address, id_owner, name, phone, tin, url_logo)
+    VALUES(
+    'Old West Street',
+    5, 'The Buffalo',
+    '+573104567878',
+    '910101101',
+    'https://img.lalr.co/cms/2020/12/03171752/LOCACIONES-DESCORTES-NOV-2020-1.jpg?size=xl'
+    );
